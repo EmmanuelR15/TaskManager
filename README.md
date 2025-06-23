@@ -1,6 +1,5 @@
 # 🚀 Gestor de Tareas en C - Desarrollo Principal por Emmanuel Ruiz
-holahola test 
-kevin hola hola
+
 Programa de línea de comandos para gestionar proyectos y tareas con persistencia en archivos binarios. **Desarrollado principalmente por Emmanuel Ruiz** como trabajo práctico para la materia de Programación, con contribuciones del equipo.
 
 ## Características principales
@@ -28,6 +27,8 @@ Programa de línea de comandos para gestionar proyectos y tareas con persistenci
 - Sistema operativo Windows o Linux
 
 ### Pasos para compilar y ejecutar
+
+![image](https://github.com/user-attachments/assets/fdd07f3c-a507-4fe5-a5ce-f796e5abe6a3)
 
 #### En Linux
 ```bash
