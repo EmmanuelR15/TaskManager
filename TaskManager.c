@@ -619,3 +619,45 @@ void leer_cadena(const char *mensaje, char *destino, int max)
     fgets(destino, max, stdin);
     destino[strcspn(destino, "\n")] = 0; // Eliminar salto de línea
 }
+
+Tarea** buscar_tareas_por_palabra_clave(const char* palabra_clave, int* count) {
+    *count = 0;
+    Tarea** resultados = malloc(total_tareas * sizeof(Tarea*));
+    if(!resultados) return NULL;
+
+    Nodo* actual = lista_tareas;
+    while(actual != NULL) {
+        char* desc_lower = strdup(actual->tarea.descripcion);
+        char* key_lower = strdup(palabra_clave);
+        
+        // Convertir a minúsculas
+        for(char* p = desc_lower; *p; ++p) *p = tolower(*p);
+        for(char* p = key_lower; *p; ++p) *p = tolower(*p);
+        
+        if(strstr(desc_lower, key_lower)) {
+            resultados[(*count)++] = &(actual->tarea);
+        }
+        
+        free(desc_lower);
+        free(key_lower);
+        actual = actual->siguiente;
+    }
+    
+    return resultados;
+}
+
+Tarea** filtrar_tareas_por_estado(Estado estado, int* count) {
+    *count = 0;
+    Tarea** resultados = malloc(total_tareas * sizeof(Tarea*));
+    if(!resultados) return NULL;
+
+    Nodo* actual = lista_tareas;
+    while(actual != NULL) {
+        if(actual->tarea.estado == estado) {
+            resultados[(*count)++] = &(actual->tarea);
+        }
+        actual = actual->siguiente;
+    }
+    
+    return resultados;
+}
