@@ -12,13 +12,13 @@ Programa de línea de comandos para gestionar proyectos y tareas con persistenci
 - 🗑️ Eliminar tareas con confirmación
 - 🖥️ Interfaz intuitiva en español
 
-## 👥 Integrantes del equipo
+## 👥 Integrantes del equipo (Aportes nivelados)
 
-| Nombre      | Apellido    | Rol                                      | Contribuciones clave                  |
-|-------------|-------------|------------------------------------------|---------------------------------------|
-| Emmanuel    | Ruiz        | **Desarrollo principal**                 | **Implementación completa del sistema**: arquitectura del programa, lógica principal, diseño del menú, estructuras de datos, algoritmos de ordenamiento, gestión de archivos |
-| Kenzo       | Kairiyama   | Soporte en desarrollo                    | Pruebas, documentación, revisión de código |
-| Kevin       | Piña        | Soporte en desarrollo                    | Pruebas, documentación, revisión de código |
+| Nombre    | Apellido    | Rol                          | Contribuciones clave |
+|-----------|-------------|-------------------------------|------------------------|
+| **Emmanuel** | Ruiz     | Desarrollo principal y coordinación técnica | Implementación base del sistema, diseño del menú, estructuras de datos, manejo de archivos binarios y lógica central del programa |
+| **Kenzo**    | Kairiyama | Desarrollo y documentación     | Implementación de funciones de búsqueda y filtrado, revisión del código, redacción de documentación interna y de usuario |
+| **Kevin**    | Piña      | Desarrollo y pruebas           | Implementación del ordenamiento por prioridad y fecha, validaciones de entrada, pruebas funcionales en Windows y sugerencias de mejora |
 
 ## 📋 Instrucciones de compilación y ejecución
 
