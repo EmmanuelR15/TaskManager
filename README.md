@@ -28,7 +28,7 @@ Programa de línea de comandos para gestionar proyectos y tareas con persistenci
 
 ### Pasos para compilar y ejecutar
 
-![image](https://github.com/user-attachments/assets/fdd07f3c-a507-4fe5-a5ce-f796e5abe6a3)
+![image](https://github.com/user-attachments/assets/f4dc10c0-2fc7-43f5-8cfc-9be4c5f13d09)
 
 #### En Linux
 ```bash
