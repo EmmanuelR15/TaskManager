@@ -1,98 +1,187 @@
-# 🚀 Gestor de Tareas en C - Desarrollo Principal por Emmanuel Ruiz
+# 🚀 Gestor de Tareas en C
 
-Programa de línea de comandos para gestionar proyectos y tareas con persistencia en archivos binarios. **Desarrollado principalmente por Emmanuel Ruiz** como trabajo práctico para la materia de Programación, con contribuciones del equipo.
+```mermaid
+graph TD
+    A[Inicio] --> B[Cargar datos de tareas.dat]
+    B --> C[Mostrar menú principal]
+    C --> D{Opción seleccionada}
+    D -->|1| E[Agregar nueva tarea]
+    D -->|2| F[Mostrar todas las tareas]
+    D -->|3| G[Buscar tareas]
+    D -->|4| H[Ordenar tareas]
+    D -->|5| I[Modificar tarea]
+    D -->|6| J[Marcar como completada]
+    D -->|7| K[Eliminar tarea]
+    D -->|8| L[Guardar datos]
+    D -->|9| M[Salir]
+    E --> C
+    F --> C
+    G --> C
+    H --> C
+    I --> C
+    J --> C
+    K --> C
+    L --> C
+    M --> N[Guardar datos automáticamente?]
+    N -->|Sí| O[Guardar en tareas.dat]
+    O --> P[Liberar memoria]
+    N -->|No| P
+    P --> Q[Fin]
+```
 
-## Características principales
-- ✨ Agregar tareas con título, descripción, responsable y prioridad
-- 📝 Modificar tareas existentes
-- ✅ Marcar tareas como completadas
-- 🔍 Buscar tareas por estado, responsable o título
-- 📊 Ordenar tareas por prioridad o fecha
-- 💾 Guardado automático de datos
-- 🗑️ Eliminar tareas con confirmación
-- 🖥️ Interfaz intuitiva en español
+## 👥 Integrantes del Grupo
 
-## 👥 Integrantes del equipo (Aportes nivelados)
+| Nombre    | Apellido    | DNI       | Correo electrónico          | Rol                          |
+|-----------|-------------|-----------|-----------------------------|------------------------------|
+| Emmanuel  | Ruiz        | 45.558.596| emmausruiz@gmail.com        | Desarrollo principal         |
+| Kevin     | Piña        | 45.051.423| keviin273xd@gmail.com       | Desarrollo y pruebas         |
+| Kenzo     | Kairiyama   | 43.530.025| kenzokairiyama@icloud.com   | Desarrollo y documentación   |
 
-| Nombre    | Apellido    | Rol                          | Contribuciones clave |
-|-----------|-------------|-------------------------------|------------------------|
-| **Emmanuel** | Ruiz     | Desarrollo principal y coordinación técnica | Implementación base del sistema, diseño del menú, estructuras de datos, manejo de archivos binarios y lógica central del programa |
-| **Kenzo**    | Kairiyama | Desarrollo y documentación     | Implementación de funciones de búsqueda y filtrado, revisión del código, redacción de documentación interna y de usuario |
-| **Kevin**    | Piña      | Desarrollo y pruebas           | Implementación del ordenamiento por prioridad y fecha, validaciones de entrada, pruebas funcionales en Windows y sugerencias de mejora |
+## 🔗 Enlace al Repositorio Público
+[https://github.com/EmmanuelR15/TaskManager](https://github.com/EmmanuelR15/TaskManager)
 
-## 📋 Instrucciones de compilación y ejecución
+## ✅ Compilación y Ejecución
+**El código compila y se ejecuta sin errores** en Windows y Linux
 
 ### Requisitos previos
-- Compilador GCC instalado
-- Sistema operativo Windows o Linux
+- Compilador GCC (Linux) o MinGW (Windows)
+- Terminal o línea de comandos
 
-### Pasos para compilar y ejecutar
-
-![image](https://github.com/user-attachments/assets/f4dc10c0-2fc7-43f5-8cfc-9be4c5f13d09)
-
-# Gestor de Tareas en C
-
-Este programa es un **gestor de tareas personal** desarrollado en lenguaje C. Su función principal es permitir al usuario **crear, ver, buscar, modificar y eliminar tareas**, todo desde la consola o terminal.
-
-## 🔧 Funcionalidades
-
-### 1. Agregar tareas
-Permite registrar nuevas tareas ingresando:
-- Título
-- Descripción
-- Responsable
-- Prioridad (1 a 5)
-- Estado (Pendiente, En progreso, Completada)
-
-### 2. Visualizar tareas
-- Muestra todas las tareas registradas, ordenadas por prioridad.
-- Ofrece una vista detallada con toda la información de cada tarea.
-
-### 3. Buscar tareas
-El programa permite buscar tareas por:
-- Estado
-- Responsable
-- Coincidencia en el título
-
-### 4. Ordenar tareas
-Las tareas pueden ordenarse temporalmente por:
-- Prioridad (de mayor a menor)
-- Fecha de creación (más recientes primero)
-
-### 5. Modificar tareas
-Permite cambiar los datos de una tarea existente:
-- Título
-- Descripción
-- Responsable
-- Prioridad
-- Estado
-
-### 6. Marcar como completadas
-Permite cambiar el estado de una tarea a **Completada**.
-
-### 7. Eliminar tareas
-Se pueden eliminar tareas por ID, con confirmación previa para evitar errores.
-
-### 8. Guardar y cargar datos
-- Las tareas se guardan en un archivo binario (`tareas.dat`).
-- Al iniciar el programa, se cargan automáticamente las tareas previamente guardadas.
-
-## 🧠 Aspectos técnicos
-
-- Utiliza una **lista enlazada** para almacenar las tareas en memoria.
-- Cada tarea recibe un **ID único automático**.
-- Se usa un archivo binario para **persistencia de datos** entre sesiones.
-
-#### En Linux
+### 🐧 Instrucciones para Linux
 ```bash
-# 1. Clonar el repositorio
+# Clonar repositorio
 git clone https://github.com/EmmanuelR15/TaskManager.git
 
-# 2. Entrar al directorio del proyecto
+# Entrar al directorio
 cd TaskManager
 
-# 3. Compilar el programa
+# Compilar el programa
 gcc -o gestor_tareas main.c
 
-# 4. Ejecutar el programa
+# Ejecutar
 ./gestor_tareas
+```
+
+### 🪟 Instrucciones para Windows
+1. Instalar [MinGW](https://osdn.net/projects/mingw/)
+2. Ejecutar en CMD/PowerShell:
+```cmd
+git clone https://github.com/EmmanuelR15/TaskManager.git
+cd TaskManager
+gcc -o gestor_tareas.exe main.c
+gestor_tareas
+```
+
+## 📋 Descripción del Proyecto
+Gestor de tareas en C con persistencia en archivos binarios que permite:
+
+- ✨ **Crear tareas** con título, descripción, responsable y prioridad (1-5)
+- 🔍 **Buscar/filtrar** por estado, responsable o título
+- 📊 **Ordenar** por prioridad o fecha
+- 📝 **Modificar** cualquier campo existente
+- ✅ **Marcar como completadas** las tareas finalizadas
+- 🗑️ **Eliminar** con confirmación para evitar errores
+- 💾 **Guardado automático** en `tareas.dat`
+
+## 🧠 Estructuras Clave del Programa
+```c
+typedef enum { 
+    PENDIENTE, 
+    EN_PROGRESO, 
+    COMPLETADA 
+} Estado;
+
+typedef struct {
+    int id;  // ID único automático
+    char titulo[MAX_TITULO];
+    char descripcion[MAX_DESC];
+    char responsable[MAX_NOMBRE];
+    Estado estado;
+    int prioridad;  // 1 = máxima, 5 = mínima
+    time_t fecha;   // Fecha de creación automática
+} Tarea;
+
+typedef struct Nodo {
+    Tarea tarea;
+    struct Nodo *siguiente;  // Lista enlazada simple
+} Nodo;
+```
+
+## 🖥️ Menú Principal
+```
+===== GESTOR DE TAREAS =====
+1. Agregar tarea
+2. Mostrar todas las tareas (ordenadas por prioridad)
+3. Buscar tareas
+4. Ordenar tareas (criterios avanzados)
+5. Modificar tarea
+6. Marcar como completada
+7. Eliminar tarea
+8. Guardar datos
+9. Salir
+```
+
+## 📝 Ejemplo de Uso
+```plaintext
+> Opción 1: Agregar tarea
+Titulo: Preparar presentación
+Descripción: Crear slides para reunión
+Responsable: Emmanuel Ruiz
+Prioridad (1-5): 2
+Estado (0=Pend, 1=Prog, 2=Comp): 1
+
+> Opción 2: Mostrar tareas
+[ID: 1 | Pri: 2 | Preparar presentación | En progreso]
+
+> Opción 6: Completar tarea
+ID a completar: 1
+[+] Tarea marcada como completada
+
+> Opción 8: Guardar datos
+[+] Datos guardados (1 tarea)
+```
+
+## 📊 Diagrama de Flujo de Datos
+```mermaid
+graph LR
+    A[Entrada de usuario] --> B(Validación)
+    B --> C{Es válida?}
+    C -->|Sí| D[Procesar comando]
+    C -->|No| E[Mostrar error]
+    D --> F[Operar en lista enlazada]
+    F --> G[Actualizar datos]
+    G --> H{Persistencia?}
+    H -->|Sí| I[Guardar en tareas.dat]
+    H -->|No| J[Actualizar memoria]
+    I --> K[Mostrar confirmación]
+    J --> K
+```
+
+## 💾 Persistencia de Datos
+- Datos almacenados en `tareas.dat` (formato binario)
+- Estructura de almacenamiento:
+  ```c
+  struct TareaArchivo {
+      int id;
+      char titulo[100];
+      char descripcion[250];
+      char responsable[50];
+      int estado;
+      int prioridad;
+      time_t fecha;
+  };
+  ```
+- Carga automática al iniciar el programa
+- Guardado manual (Opción 8) o automático al salir
+
+## 📄 Licencia
+MIT License - Ver [LICENSE](https://github.com/EmmanuelR15/TaskManager/blob/main/LICENSE) para detalles completos.
+
+## 📬 Entrega del Proyecto
+1. **Repositorio público**: [https://github.com/EmmanuelR15/TaskManager](https://github.com/EmmanuelR15/TaskManager)
+2. **Código verificado**: Compila y ejecuta sin errores
+3. **Datos de integrantes**: 
+   - Ruiz Emmanuel, DNI 45.558.596, emmausruiz@gmail.com
+   - Kevin Piña, DNI 45.051.423, keviin273xd@gmail.com
+   - Kenzo Kairiyama, DNI 43.530.025, kenzokairiyama@icloud.com
+4. **Instrucciones completas**: Incluidas en este documento
