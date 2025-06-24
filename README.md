@@ -1,4 +1,7 @@
+
 # 🚀 Gestor de Tareas en C
+
+**Gestor de Tareas** es una aplicación de consola desarrollada en lenguaje **C** que permite administrar tareas personales o de equipo de forma simple, eficiente y con persistencia de datos. A través de un menú interactivo, el usuario puede agregar, modificar, buscar, eliminar y ordenar tareas, además de marcarlas como completadas. Todos los cambios se guardan en un archivo binario (`tareas.dat`), lo que permite conservar el historial entre ejecuciones.
 
 ```mermaid
 graph TD
@@ -27,27 +30,31 @@ graph TD
     O --> P[Liberar memoria]
     N -->|No| P
     P --> Q[Fin]
-```
+````
 
 ## 👥 Integrantes del Grupo
 
-| Nombre    | Apellido    | DNI       | Correo electrónico          | Rol                          |
-|-----------|-------------|-----------|-----------------------------|------------------------------|
-| Emmanuel  | Ruiz        | 45.558.596| emmausruiz@gmail.com        | Desarrollo principal         |
-| Kevin     | Piña        | 45.051.423| keviin273xd@gmail.com       | Desarrollo y pruebas         |
-| Kenzo     | Kairiyama   | 43.530.025| kenzokairiyama@icloud.com   | Desarrollo y documentación   |
+| Nombre       | Apellido  | Rol                                         | Contribuciones clave                                                                                                                   |
+| ------------ | --------- | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| **Emmanuel** | Ruiz      | Desarrollo principal y coordinación técnica | Implementación base del sistema, diseño del menú, estructuras de datos, manejo de archivos binarios y lógica central del programa      |
+| **Kenzo**    | Kairiyama | Desarrollo y documentación                  | Implementación de funciones de búsqueda y filtrado, revisión del código, redacción de documentación interna y de usuario               |
+| **Kevin**    | Piña      | Desarrollo y pruebas                        | Implementación del ordenamiento por prioridad y fecha, validaciones de entrada, pruebas funcionales en Windows y sugerencias de mejora |
 
 ## 🔗 Enlace al Repositorio Público
+
 [https://github.com/EmmanuelR15/TaskManager](https://github.com/EmmanuelR15/TaskManager)
 
 ## ✅ Compilación y Ejecución
+
 **El código compila y se ejecuta sin errores** en Windows y Linux
 
 ### Requisitos previos
-- Compilador GCC (Linux) o MinGW (Windows)
-- Terminal o línea de comandos
+
+* Compilador GCC (Linux) o MinGW (Windows)
+* Terminal o línea de comandos
 
 ### 🐧 Instrucciones para Linux
+
 ```bash
 # Clonar repositorio
 git clone https://github.com/EmmanuelR15/TaskManager.git
@@ -63,8 +70,10 @@ gcc -o gestor_tareas main.c
 ```
 
 ### 🪟 Instrucciones para Windows
+
 1. Instalar [MinGW](https://osdn.net/projects/mingw/)
 2. Ejecutar en CMD/PowerShell:
+
 ```cmd
 git clone https://github.com/EmmanuelR15/TaskManager.git
 cd TaskManager
@@ -73,17 +82,19 @@ gestor_tareas
 ```
 
 ## 📋 Descripción del Proyecto
+
 Gestor de tareas en C con persistencia en archivos binarios que permite:
 
-- ✨ **Crear tareas** con título, descripción, responsable y prioridad (1-5)
-- 🔍 **Buscar/filtrar** por estado, responsable o título
-- 📊 **Ordenar** por prioridad o fecha
-- 📝 **Modificar** cualquier campo existente
-- ✅ **Marcar como completadas** las tareas finalizadas
-- 🗑️ **Eliminar** con confirmación para evitar errores
-- 💾 **Guardado automático** en `tareas.dat`
+* ✨ **Crear tareas** con título, descripción, responsable y prioridad (1-5)
+* 🔍 **Buscar/filtrar** por estado, responsable o título
+* 📊 **Ordenar** por prioridad o fecha
+* 📝 **Modificar** cualquier campo existente
+* ✅ **Marcar como completadas** las tareas finalizadas
+* 🗑️ **Eliminar** con confirmación para evitar errores
+* 💾 **Guardado automático** en `tareas.dat`
 
 ## 🧠 Estructuras Clave del Programa
+
 ```c
 typedef enum { 
     PENDIENTE, 
@@ -108,6 +119,7 @@ typedef struct Nodo {
 ```
 
 ## 🖥️ Menú Principal
+
 ```
 ===== GESTOR DE TAREAS =====
 1. Agregar tarea
@@ -122,6 +134,7 @@ typedef struct Nodo {
 ```
 
 ## 📝 Ejemplo de Uso
+
 ```plaintext
 > Opción 1: Agregar tarea
 Titulo: Preparar presentación
@@ -142,6 +155,7 @@ ID a completar: 1
 ```
 
 ## 📊 Diagrama de Flujo de Datos
+
 ```mermaid
 graph LR
     A[Entrada de usuario] --> B(Validación)
@@ -158,8 +172,10 @@ graph LR
 ```
 
 ## 💾 Persistencia de Datos
-- Datos almacenados en `tareas.dat` (formato binario)
-- Estructura de almacenamiento:
+
+* Datos almacenados en `tareas.dat` (formato binario)
+* Estructura de almacenamiento:
+
   ```c
   struct TareaArchivo {
       int id;
@@ -171,14 +187,15 @@ graph LR
       time_t fecha;
   };
   ```
-- Carga automática al iniciar el programa
-- Guardado manual (Opción 8) o automático al salir
+* Carga automática al iniciar el programa
+* Guardado manual (Opción 8) o automático al salir
 
-## 📬 Entrega del Proyecto
-1. **Repositorio público**: [https://github.com/EmmanuelR15/TaskManager](https://github.com/EmmanuelR15/TaskManager)
-2. **Código verificado**: Compila y ejecuta sin errores
-3. **Datos de integrantes**: 
-   - Ruiz Emmanuel, DNI 45.558.596, emmausruiz@gmail.com
-   - Kevin Piña, DNI 45.051.423, keviin273xd@gmail.com
-   - Kenzo Kairiyama, DNI 43.530.025, kenzokairiyama@icloud.com
-4. **Instrucciones completas**: Incluidas en este documento
+---
+
+## 💡 Contribuciones Clave
+
+* **Gestión con listas enlazadas**: Las tareas se almacenan dinámicamente en memoria usando listas enlazadas simples, lo que permite inserciones y eliminaciones eficientes.
+* **Persistencia binaria robusta**: Lectura y escritura en `tareas.dat` para mantener datos entre sesiones.
+* **Menú interactivo y modular**: Separación clara entre funcionalidades como agregar, modificar, buscar o eliminar tareas.
+* **Ordenamiento y filtrado personalizado**: Implementación de funciones para ordenar tareas por prioridad o fecha, y búsqueda por criterios específicos.
+* **Control de estado y seguimiento**: Las tareas pueden marcarse como pendientes, en progreso o completadas, permitiendo un seguimiento efectivo del flujo de trabajo.
