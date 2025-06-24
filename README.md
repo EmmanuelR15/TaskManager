@@ -154,6 +154,8 @@ ID a completar: 1
 [+] Datos guardados (1 tarea)
 ```
 
+![Captura del programa](https://github.com/EmmanuelR15/TaskManager/blob/main/programa.png?raw=true)
+
 ## 📊 Diagrama de Flujo de Datos
 
 ```mermaid
