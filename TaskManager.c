@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <ctype.h>
 
 #define MAX_TITULO 100
 #define MAX_DESC 250
@@ -620,82 +621,102 @@ void leer_cadena(const char *mensaje, char *destino, int max)
     destino[strcspn(destino, "\n")] = 0; // Eliminar salto de línea
 }
 
-Tarea** buscar_tareas_por_palabra_clave(const char* palabra_clave, int* count) {
+Tarea **buscar_tareas_por_palabra_clave(const char *palabra_clave, int *count)
+{
     *count = 0;
-    Tarea** resultados = malloc(total_tareas * sizeof(Tarea*));
-    if(!resultados) return NULL;
+    Tarea **resultados = malloc(total_tareas * sizeof(Tarea *));
+    if (!resultados)
+        return NULL;
 
-    Nodo* actual = lista_tareas;
-    while(actual != NULL) {
-        char* desc_lower = strdup(actual->tarea.descripcion);
-        char* key_lower = strdup(palabra_clave);
-        
+    Nodo *actual = lista_tareas;
+    while (actual != NULL)
+    {
+        char *desc_lower = strdup(actual->tarea.descripcion);
+        char *key_lower = strdup(palabra_clave);
+
         // Convertir a minúsculas
-        for(char* p = desc_lower; *p; ++p) *p = tolower(*p);
-        for(char* p = key_lower; *p; ++p) *p = tolower(*p);
-        
-        if(strstr(desc_lower, key_lower)) {
+        for (char *p = desc_lower; *p; ++p)
+            *p = tolower(*p);
+        for (char *p = key_lower; *p; ++p)
+            *p = tolower(*p);
+
+        if (strstr(desc_lower, key_lower))
+        {
             resultados[(*count)++] = &(actual->tarea);
         }
-        
+
         free(desc_lower);
         free(key_lower);
         actual = actual->siguiente;
     }
-    
+
     return resultados;
 }
 
-int comparar_por_prioridad(const void* a, const void* b) {
-    const Tarea* t1 = *(const Tarea**)a;
-    const Tarea* t2 = *(const Tarea**)b;
-    
+int comparar_por_prioridad(const void *a, const void *b)
+{
+    const Tarea *t1 = *(const Tarea **)a;
+    const Tarea *t2 = *(const Tarea **)b;
+
     // Prioridad: 1 (Alta) > 5 (Baja)
     return t1->prioridad - t2->prioridad;
 }
 
-Tarea** ordenar_tareas_por_prioridad(int* count) {
+Tarea **ordenar_tareas_por_prioridad(int *count)
+{
     *count = total_tareas;
-    Tarea** copia = malloc(*count * sizeof(Tarea*));
-    if(!copia) return NULL;
-    
-    Nodo* actual = lista_tareas;
-    for(int i = 0; i < total_tareas && actual != NULL; i++) {
+    Tarea **copia = malloc(*count * sizeof(Tarea *));
+    if (!copia)
+        return NULL;
+
+    Nodo *actual = lista_tareas;
+    for (int i = 0; i < total_tareas && actual != NULL; i++)
+    {
         copia[i] = &(actual->tarea);
         actual = actual->siguiente;
     }
-    
-    qsort(copia, *count, sizeof(Tarea*), comparar_por_prioridad);
+
+    qsort(copia, *count, sizeof(Tarea *), comparar_por_prioridad);
     return copia;
 }
 
-int validar_formato_fecha(const char* fecha) {
-    if(strlen(fecha) != 10) return 0;
-    if(fecha[4] != '-' || fecha[7] != '-') return 0;
-    
-    for(int i = 0; i < 10; i++) {
-        if(i == 4 || i == 7) continue;
-        if(!isdigit(fecha[i])) return 0;
+int validar_formato_fecha(const char *fecha)
+{
+    if (strlen(fecha) != 10)
+        return 0;
+    if (fecha[4] != '-' || fecha[7] != '-')
+        return 0;
+
+    for (int i = 0; i < 10; i++)
+    {
+        if (i == 4 || i == 7)
+            continue;
+        if (!isdigit(fecha[i]))
+            return 0;
     }
-    
+
     // Validación básica de rangos
     int mes = (fecha[5] - '0') * 10 + (fecha[6] - '0');
     int dia = (fecha[8] - '0') * 10 + (fecha[9] - '0');
-    
+
     return (mes >= 1 && mes <= 12) && (dia >= 1 && dia <= 31);
 }
-Tarea** filtrar_tareas_por_estado(Estado estado, int* count) {
+Tarea **filtrar_tareas_por_estado(Estado estado, int *count)
+{
     *count = 0;
-    Tarea** resultados = malloc(total_tareas * sizeof(Tarea*));
-    if(!resultados) return NULL;
+    Tarea **resultados = malloc(total_tareas * sizeof(Tarea *));
+    if (!resultados)
+        return NULL;
 
-    Nodo* actual = lista_tareas;
-    while(actual != NULL) {
-        if(actual->tarea.estado == estado) {
+    Nodo *actual = lista_tareas;
+    while (actual != NULL)
+    {
+        if (actual->tarea.estado == estado)
+        {
             resultados[(*count)++] = &(actual->tarea);
         }
         actual = actual->siguiente;
     }
-    
+
     return resultados;
 }
