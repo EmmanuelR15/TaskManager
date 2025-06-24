@@ -174,9 +174,6 @@ graph LR
 - Carga automática al iniciar el programa
 - Guardado manual (Opción 8) o automático al salir
 
-## 📄 Licencia
-MIT License - Ver [LICENSE](https://github.com/EmmanuelR15/TaskManager/blob/main/LICENSE) para detalles completos.
-
 ## 📬 Entrega del Proyecto
 1. **Repositorio público**: [https://github.com/EmmanuelR15/TaskManager](https://github.com/EmmanuelR15/TaskManager)
 2. **Código verificado**: Compila y ejecuta sin errores
